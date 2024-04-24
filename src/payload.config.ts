@@ -14,6 +14,8 @@ import Company from './globals/Company'
 import Logo from './app/(payload)/_compoennts/Logo'
 import Icon from './app/(payload)/_compoennts/Icon'
 import { Forms } from './collections/Forms'
+import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
+import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -39,4 +41,24 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   email: undefined,
+  plugins: [
+    cloudStorage({
+      collections: {
+        media: {
+          adapter: s3Adapter({
+            config: {
+              forcePathStyle: true,
+              credentials: {
+                accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
+                secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
+              },
+              region: process.env.S3_REGION,
+              endpoint: process.env.S3_ENDPOINT,
+            },
+            bucket: process.env.S3_BUCKET || '',
+          }),
+        },
+      },
+    }),
+  ],
 })

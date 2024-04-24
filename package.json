@@ -17,9 +17,13 @@
     "node": ">=20.12.2"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.556.0",
+    "@aws-sdk/lib-storage": "^3.556.0",
     "@payloadcms/db-mongodb": "beta",
     "@payloadcms/next": "beta",
+    "@payloadcms/plugin-cloud-storage": "beta",
     "@payloadcms/richtext-lexical": "beta",
+    "aws-crt": "^1.21.2",
     "cross-env": "^7.0.3",
     "next": "^14.3.0-canary.7",
     "payload": "beta",
