@@ -1,0 +1,42 @@
+import { mongooseAdapter } from '@payloadcms/db-mongodb'
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import path from 'path'
+import { buildConfig } from 'payload/config'
+import { fileURLToPath } from 'url'
+import { Users } from './collections/Users'
+import { Categories } from './collections/Categories'
+import { Media } from './collections/Media'
+import { Products } from './collections/Products'
+import Homepage from './globals/Homepage'
+import AboutUs from './globals/AboutUs'
+import ContactUs from './globals/ContactUs'
+import Company from './globals/Company'
+import Logo from './app/(payload)/_compoennts/Logo'
+import Icon from './app/(payload)/_compoennts/Icon'
+import { Forms } from './collections/Forms'
+
+const filename = fileURLToPath(import.meta.url)
+const dirname = path.dirname(filename)
+
+export default buildConfig({
+  admin: {
+    user: Users.slug,
+    components: {
+      graphics: {
+        Logo: Logo,
+        Icon: Icon,
+      },
+    },
+  },
+  collections: [Users, Media, Categories, Products, Forms],
+  globals: [Company, Homepage, AboutUs, ContactUs],
+  editor: lexicalEditor({}),
+  secret: process.env.PAYLOAD_SECRET || '',
+  typescript: {
+    outputFile: path.resolve(dirname, 'payload-types.ts'),
+  },
+  db: mongooseAdapter({
+    url: process.env.DATABASE_URI || '',
+  }),
+  email: undefined,
+})
