@@ -1,7 +1,11 @@
+import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload/types'
 
 const Company: GlobalConfig = {
   slug: 'company',
+  hooks: {
+    afterChange: [() => revalidatePath('/', 'layout')],
+  },
   fields: [
     {
       name: 'name',

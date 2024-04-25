@@ -18,9 +18,7 @@ const HomePage = async () => {
                 {homepage?.hero?.title}
                 <br />
               </h1>
-              <p className="hero-wrap-description" style={{ whiteSpace: 'pre' }}>
-                {homepage.hero.description}
-              </p>
+              <p className="hero-wrap-description">{homepage.hero.description}</p>
               <Link href="/products" className="button banner-button w-button">
                 {homepage.hero.button}
               </Link>
@@ -32,8 +30,8 @@ const HomePage = async () => {
         <div className="container w-container">
           <div className="service-content-wrap">
             <div className="w-layout-grid service-grid-wrap wf-grid">
-              {homepage.services.service.map((service: any) => (
-                <div className="service-item">
+              {homepage.services.service.map((service, index) => (
+                <div key={index} className="service-item">
                   <h2 className="service-title">{service.title}</h2>
                   <p className="service-content">{service.description}</p>
                 </div>
@@ -66,8 +64,8 @@ const HomePage = async () => {
       <section className="counter-section">
         <div className="container w-container">
           <div className="w-layout-grid counter-grid-wrap wf-grid">
-            {homepage.numbers.number.map((number: any) => (
-              <div className="counter-item">
+            {homepage.numbers.number.map((number, index) => (
+              <div key={index} className="counter-item">
                 <h3 className="count-number">{number.title}</h3>
                 <p className="counter-title">{number.description}</p>
               </div>
@@ -79,18 +77,16 @@ const HomePage = async () => {
         <div className="container w-container">
           <div className="section-title-wrap">
             <h2 className="section-title center-small-space">{homepage.top_categories.title}</h2>
-            <p className="section-title-content" style={{ whiteSpace: 'pre' }}>
-              {homepage.top_categories.description}
-            </p>
+            <p className="section-title-content">{homepage.top_categories.description}</p>
           </div>
           <div className="project-items home-page-projects">
             <div className="w-dyn-list">
               <div role="list" className="w-dyn-items w-row">
-                {homepage.top_categories.categories.map((category: any) => (
-                  <div className="w-dyn-item w-col w-col-6">
+                {homepage.top_categories.categories.map((category, index) => (
+                  <div key={index} className="w-dyn-item w-col w-col-6">
                     <div className="project-item">
                       <Link
-                        href={`/products?category=${category.slug}`}
+                        href={`/products/${category.slug}`}
                         className="project-link-block w-inline-block"
                       >
                         <img
@@ -103,13 +99,13 @@ const HomePage = async () => {
                       <div className="project-listing-details">
                         <div className="project-title-wrap">
                           <Link
-                            href={`/products?category=${category.slug}`}
+                            href={`/products/${category.slug}`}
                             className="project-title-link w-inline-block"
                           >
                             <h2 className="project-title">{category.name}</h2>
                           </Link>
                           <Link
-                            href={`/products?category=${category.slug}`}
+                            href={`/products/${category.slug}`}
                             className="project-category-link"
                           >
                             {category.description}
@@ -117,7 +113,7 @@ const HomePage = async () => {
                         </div>
                         <div className="project-readmore">
                           <a
-                            href={`/products?category=${category.slug}`}
+                            href={`/products/${category.slug}`}
                             className="project-single-link w-inline-block"
                           >
                             <svg
@@ -150,8 +146,8 @@ const HomePage = async () => {
           <div className="testimonial-content-wrap">
             <h2 className="section-title text-center">{homepage.testimonials.title}</h2>
             <div className="w-layout-grid testimonial-grid wf-grid">
-              {homepage.testimonials.testimonial.map((testimonial: any) => (
-                <div className="testimonial-item">
+              {homepage.testimonials.testimonial.map((testimonial, index) => (
+                <div key={index} className="testimonial-item">
                   <div className="testimonial-detail">
                     <div className="testimonial-image-wrap">
                       <img
@@ -176,8 +172,9 @@ const HomePage = async () => {
       <section className="clients-section">
         <div className="container w-container">
           <div className="w-layout-grid client-gird-wrap wf-grid">
-            {homepage.brands.brand.map((brand: any) => (
+            {homepage.brands.brand.map((brand, index) => (
               <div
+                key={index}
                 id="w-node-cc80d0cd-42e4-2620-442a-514667d49987-b3106505"
                 className="client-image-wrap"
               >
@@ -191,15 +188,17 @@ const HomePage = async () => {
         <div className="container w-container">
           <div className="section-title-wrap">
             <h2 className="section-title center-small-space">{homepage.top_products.title}</h2>
-            <p className="section-title-content" style={{ whiteSpace: 'pre' }}>
-              {homepage.top_products.description}
-            </p>
+            <p className="section-title-content">{homepage.top_products.description}</p>
           </div>
           <div className="blog-wrap home-page-blog">
             <div className="w-dyn-list">
               <div role="list" className="w-dyn-items w-row">
-                {homepage.top_products.products.map((product) => (
-                  <div role="listitem" className="blog-collection-item w-dyn-item w-col w-col-4">
+                {homepage.top_products.products.map((product, index) => (
+                  <div
+                    key={index}
+                    role="listitem"
+                    className="blog-collection-item w-dyn-item w-col w-col-4"
+                  >
                     <Link href={`/product/${product.slug}`} className="blog-item">
                       <div className="blog-image-wrap">
                         <div className="blog-listing-image-container">

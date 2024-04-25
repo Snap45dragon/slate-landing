@@ -27,12 +27,18 @@ const AboutPage = async () => {
         <div className="container w-container">
           {aboutUs.sections.map(async (section, index) => (
             <div
-              className="w-layout-grid about-grid-wrap wf-grid"
-              style={index % 2 !== 0 ? { gridTemplateColumns: '1fr .8fr' } : {}}
+              key={index}
+              className={
+                index % 2 !== 0
+                  ? 'w-layout-grid about-grid-wrap wf-grid about-toggle'
+                  : 'w-layout-grid about-grid-wrap wf-grid'
+              }
             >
               <div
-                className="about-content-wrap"
-                style={index % 2 !== 0 ? { marginLeft: '12%', order: 999 } : {}}
+                className={
+                  index % 2 !== 0 ? 'about-content-wrap left-spacing' : 'about-content-wrap'
+                }
+                style={index % 2 !== 0 ? { order: 999 } : {}}
               >
                 <h2 className="about-heading">
                   <strong>{section.title}</strong>

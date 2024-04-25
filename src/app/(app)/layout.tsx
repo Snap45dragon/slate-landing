@@ -1,13 +1,19 @@
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import config from '@payload-config'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Navbar from './_components/navbar'
+import Footer from './_components/footer'
 import { Company } from '@/payload-types'
 import './custom.css'
+import { Metadata, Viewport } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Slate Hardwares',
   description: 'Your quality store for furniture hardware needs.',
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

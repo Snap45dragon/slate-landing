@@ -2010,6 +2010,7 @@ textarea.w-select {
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
+  padding-bottom: 12px;
   text-align: left;
   vertical-align: top;
 }
@@ -2408,7 +2409,7 @@ blockquote {
   background-color: transparent;
   justify-content: space-between;
   padding-bottom: 18px;
-  padding-top: 26px;
+  padding-top: 18px;
 }
 
 .nav-link {
@@ -2483,68 +2484,6 @@ blockquote {
 .utility-page-form {
   align-items: stretch;
   flex-direction: column;
-}
-
-.banner-title-area {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a483cb41077d907a98f096_service-background.jpg);
-  background-position: 50%;
-  background-size: cover;
-  padding-top: 170px;
-}
-
-.banner-title-area.about-us-page,
-.banner-title-area.style-guide {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/619781bbd2e01fac5dca841b_title-area-background.jpg);
-}
-
-.banner-title-area.service-single {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a48656fd3a7a2d8ad09c93_service-single-background.jpg);
-}
-
-.banner-title-area.pricing-plan {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a4867ace95ff2ae6a02168_pricing-background.jpg);
-}
-
-.banner-title-area.contact-us {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a486a91df7a9868e2134f5_contactus-background.jpg);
-}
-
-.banner-title-area.faq-page {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a486dc4e1fe11f02ddd6df_faq-background.jpg);
-}
-
-.banner-title-area.changelog-page {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a4870ee80faa3be99a3cc3_changelog-background.jpg);
-}
-
-.banner-title-area.licenses-page {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a4873deea7918cabd14a4c_license-background.jpg);
-}
-
-.banner-title-area.blog-page {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a4875e28946a16a9e97c55_blog-background.jpg);
-}
-
-.banner-title-area.projects-page {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a4878a96bf585f53bd7520_project-background.jpg);
-}
-
-.banner-title-area.professionals-page {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a487aba4845f422b5f38dc_professional-background.jpg);
-}
-
-.banner-title-area.projects-single {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a487e416bbd03cd47e4046_project-single-background.jpg);
-  height: 300px;
-}
-
-.banner-title-area.blog-single {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a70af5c1578e239cb168f0_blog-single-background.jpg);
-  height: 300px;
-}
-
-.banner-title-area.password-protected {
-  background-image: url(https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/61a48832fd3a7a5b38d0a4f1_password-background.jpg);
 }
 
 .banner-content-wrap {
@@ -2973,6 +2912,7 @@ blockquote {
 
 .hero-wrap-description {
   margin-bottom: 25px;
+  white-space: pre;
 }
 
 .service-section {
@@ -3327,6 +3267,11 @@ blockquote {
 
 .section-title-content {
   text-align: center;
+  white-space: pre;
+}
+
+.contact-us-title {
+  white-space: pre;
 }
 
 .process-item-grid {
@@ -3890,6 +3835,8 @@ blockquote {
 
 .categories-sidebar {
   padding-right: 50px;
+  position: sticky;
+  top: 152px;
 }
 
 .sidebar-widget {
@@ -4518,10 +4465,6 @@ blockquote {
     align-items: stretch;
   }
 
-  .banner-title-area.blog-single {
-    height: 300px;
-  }
-
   .contact-form-button-section.right-align {
     align-items: center;
     display: flex;
@@ -4728,11 +4671,6 @@ blockquote {
 
   .utility-page-wrap.password {
     height: 100vh;
-  }
-
-  .banner-title-area.blog-single,
-  .banner-title-area.projects-single {
-    height: 350px;
   }
 
   .styleguide-item-wrap {
@@ -5050,10 +4988,6 @@ blockquote {
     height: 90vh;
   }
 
-  .banner-title-area.blog-single {
-    height: 200px;
-  }
-
   .styleguide-wrap {
     grid-template-columns: 1fr;
   }
@@ -5212,7 +5146,7 @@ blockquote {
 
   .about-grid-wrap.about-toggle {
     grid-template-columns: 1fr;
-    padding-bottom: 60px;
+    padding-bottom: 100px;
   }
 
   .about-content-wrap {
@@ -5222,6 +5156,7 @@ blockquote {
 
   .about-content-wrap.left-spacing {
     margin-left: 0;
+    order: 0 !important;
   }
 
   .about-heading {
@@ -5253,6 +5188,11 @@ blockquote {
 
   .section-title-content {
     font-size: 20px;
+    white-space: unset;
+  }
+
+  .contact-us-title {
+    white-space: unset;
   }
 
   .process-item-grid {
@@ -5405,6 +5345,8 @@ blockquote {
   .categories-sidebar {
     margin-top: 60px;
     padding-right: 0;
+    position: unset;
+    top: unset;
   }
 
   .category-link-block {
@@ -5587,6 +5529,7 @@ blockquote {
 
   .hero-wrap-description {
     line-height: 1.4;
+    white-space: unset;
   }
 
   .service-grid-wrap {
@@ -5678,6 +5621,11 @@ blockquote {
 
   .section-title-content {
     font-size: 20px;
+    white-space: unset;
+  }
+
+  .contact-us-title {
+    white-space: unset;
   }
 
   .process-heading {
@@ -6024,10 +5972,6 @@ blockquote {
     height: 100vh;
   }
 
-  .banner-title-area.blog-single {
-    height: 150px;
-  }
-
   .banner-content-wrap {
     padding-bottom: 20px;
     padding-top: 15px;
@@ -6115,6 +6059,7 @@ blockquote {
 
   .hero-wrap-description {
     font-size: 20px;
+    white-space: unset;
   }
 
   .service-item {

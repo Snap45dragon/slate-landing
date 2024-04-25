@@ -13,9 +13,7 @@ const ContactUsPage = async () => {
       <section className="contact-page-form">
         <div className="container w-container">
           <div className="contact-page-wrap">
-            <h2 className="section-title text-center" style={{ whiteSpace: 'pre' }}>
-              {contactUs.title}
-            </h2>
+            <h2 className="section-title text-center contact-us-title">{contactUs.title}</h2>
             <div className="w-layout-grid contact-page-grid wf-grid">
               <div className="contact-detail-wrap">
                 <div className="contact-detail-item">
@@ -66,8 +64,9 @@ const ContactUsPage = async () => {
             <h2 className="call-to-action-title">{contactUs.social_card.title}</h2>
             <p className="call-to-action-content">{contactUs.social_card.description}</p>
             <div className="contact-social-wrap">
-              {company.social_links.map((social) => (
+              {company.social_links.map((social, index) => (
                 <a
+                  key={index}
                   href={social.link}
                   className="contact-social-link w-inline-block"
                   target="_blank"

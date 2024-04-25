@@ -1,8 +1,12 @@
+import { revalidatePath } from 'next/cache'
 import { GlobalConfig } from 'payload/types'
 
 const ContactUs: GlobalConfig = {
   slug: 'contact-us',
   label: 'Contact Us',
+  hooks: {
+    afterChange: [() => revalidatePath('/contact-us')],
+  },
   fields: [
     {
       name: 'title',

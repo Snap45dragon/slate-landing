@@ -1,3 +1,4 @@
+import { revalidatePath } from 'next/cache'
 import { CollectionConfig, FieldHook } from 'payload/types'
 
 const formatSlug: FieldHook = async ({ value, data }) =>
@@ -7,6 +8,9 @@ export const Products: CollectionConfig = {
   slug: 'products',
   admin: {
     useAsTitle: 'name',
+  },
+  hooks: {
+    afterChange: [() => revalidatePath('/', 'layout')],
   },
   fields: [
     {

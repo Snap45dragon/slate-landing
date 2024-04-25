@@ -1,3 +1,4 @@
+import { revalidatePath } from 'next/cache'
 import { CollectionConfig } from 'payload/types'
 
 export const Media: CollectionConfig = {
@@ -5,9 +6,15 @@ export const Media: CollectionConfig = {
   admin: {
     useAsTitle: 'alt',
   },
+  access: {
+    read: () => true,
+  },
   upload: {
     staticDir: 'media',
     disableLocalStorage: true,
+  },
+  hooks: {
+    afterChange: [() => revalidatePath('/', 'layout')],
   },
   fields: [
     {
