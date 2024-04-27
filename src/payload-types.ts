@@ -168,6 +168,7 @@ export interface Company {
     link: string
     id?: string | null
   }[]
+  not_found_image: Media
   updatedAt?: string | null
   createdAt?: string | null
 }

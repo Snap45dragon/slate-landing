@@ -199,7 +199,10 @@ const HomePage = async () => {
                     role="listitem"
                     className="blog-collection-item w-dyn-item w-col w-col-4"
                   >
-                    <Link href={`/product/${product.slug}`} className="blog-item">
+                    <Link
+                      href={`/products/${product.category.slug}/${product.slug}`}
+                      className="blog-item"
+                    >
                       <div className="blog-image-wrap">
                         <div className="blog-listing-image-container">
                           <img

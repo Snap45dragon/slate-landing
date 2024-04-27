@@ -58,6 +58,13 @@ const Company: GlobalConfig = {
         },
       ],
     },
+    {
+      name: 'not_found_image',
+      label: 'Not Found Image',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+    },
   ],
 }
 

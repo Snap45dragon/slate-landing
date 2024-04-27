@@ -2,6 +2,7 @@ import { getPayloadHMR } from '@payloadcms/next/utilities'
 import config from '@payload-config'
 import { convertLexicalToHTML, defaultHTMLConverters } from '@payloadcms/richtext-lexical'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 type Props = {
   params: {
@@ -29,6 +30,7 @@ const ProductPage = async ({ params }: Props) => {
     depth: 2,
     where: { slug: { equals: params.product } },
   })
+  if (products.totalDocs === 0) notFound()
   const product = products.docs[0]
   const description = await convertLexicalToHTML({
     data: product.description,

@@ -1,6 +1,7 @@
 import { getPayloadHMR } from '@payloadcms/next/utilities'
 import config from '@payload-config'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 type Props = {
   category?: string
@@ -15,6 +16,7 @@ const Products = async (params: Props) => {
     pagination: false,
     where: params.category ? { 'category.slug': { equals: params.category } } : {},
   })
+  if (products.totalDocs === 0) notFound()
 
   return (
     <div className="contact-page-form">
