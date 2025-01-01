@@ -495,7 +495,6 @@ export interface ContactUs {
   id: string;
   title: string;
   email: string;
-  phone: string;
   website: string;
   social_card: {
     title: string;
@@ -650,7 +649,6 @@ export interface AboutUsSelect<T extends boolean = true> {
 export interface ContactUsSelect<T extends boolean = true> {
   title?: T;
   email?: T;
-  phone?: T;
   website?: T;
   social_card?:
     | T

@@ -19,11 +19,6 @@ const ContactUs: GlobalConfig = {
       required: true,
     },
     {
-      name: 'phone',
-      type: 'text',
-      required: true,
-    },
-    {
       name: 'website',
       type: 'text',
       required: true,

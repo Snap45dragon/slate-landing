@@ -31,18 +31,6 @@ const ContactUsPage = async () => {
                 <div className="contact-detail-item">
                   <div className="contact-icon-wrap">
                     <img
-                      src="https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/619c8d35d8ad3f639aee4b93_contact-icon-two.svg"
-                      loading="lazy"
-                      alt="Contact Icon"
-                    />
-                  </div>
-                  <a href={`tel:${contactUs.phone}`} className="contact-link">
-                    {contactUs.phone}
-                  </a>
-                </div>
-                <div className="contact-detail-item">
-                  <div className="contact-icon-wrap">
-                    <img
                       src="https://uploads-ssl.webflow.com/6194e0af852e05a5be106504/619c8d35c483a1848884ce54_contact-icon-three.svg"
                       loading="lazy"
                       alt="Contact Icon"
