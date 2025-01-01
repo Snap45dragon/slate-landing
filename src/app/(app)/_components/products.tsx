@@ -1,7 +1,7 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { redirect } from 'next/navigation'
 
 type Props = {
   category?: string
@@ -16,9 +16,7 @@ const Products = async (params: Props) => {
     pagination: false,
     where: params.category ? { 'category.slug': { equals: params.category } } : {},
   })
-  console.log(params.category)
-  console.log(products)
-  if (products.totalDocs === 0) notFound()
+  if (products.totalDocs === 0) redirect('/products')
 
   return (
     <div className="contact-page-form">
