@@ -61,9 +61,6 @@ const Footer: React.FC<FooterProps> = async ({ company }) => {
               <a href={`mailto:${company.email}`} className="footer-link">
                 {company.email}
               </a>
-              <a href={`tel:${company.phone}`} className="footer-link">
-                {company.phone}
-              </a>
             </div>
           </div>
         </div>
