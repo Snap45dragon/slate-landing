@@ -17,16 +17,15 @@ import { s3Storage } from '@payloadcms/storage-s3'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+console.log(dirname)
+
 export default buildConfig({
   admin: {
     user: Users.slug,
-    importMap: {
-      baseDir: path.resolve(dirname, 'src'),
-    },
     components: {
       graphics: {
-        // Logo: '/app/(payload)/_compoennts/logo#Logo',
-        // Icon: '/app/(payload)/_compoennts/icon#Icon',
+        Logo: '/src/app/(payload)/_compoennts/logo#Logo',
+        Icon: '/src/app/(payload)/_compoennts/icon#Icon',
       },
     },
   },

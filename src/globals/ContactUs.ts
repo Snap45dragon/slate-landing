@@ -1,5 +1,5 @@
 import { revalidatePath } from 'next/cache'
-import { GlobalConfig } from 'payload/types'
+import { GlobalConfig } from 'payload'
 
 const ContactUs: GlobalConfig = {
   slug: 'contact-us',

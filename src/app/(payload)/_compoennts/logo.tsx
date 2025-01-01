@@ -1,2 +1,1 @@
-const Logo = () => <img src="/logo.png" alt="Slate Logo" />
-export default Logo
+export const Logo = () => <img src="/logo.png" alt="Slate Logo" />
