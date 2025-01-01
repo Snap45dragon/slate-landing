@@ -1,8 +1,8 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
-import { convertLexicalToHTML, defaultHTMLConverters } from '@payloadcms/richtext-lexical'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import { RichText } from '@payloadcms/richtext-lexical/react'
 
 type Props = {
   params: Promise<{
@@ -33,11 +33,6 @@ const ProductPage = async (props: Props) => {
   })
   if (products.totalDocs === 0) notFound()
   const product = products.docs[0]
-  const description = await convertLexicalToHTML({
-    data: product.description,
-    converters: defaultHTMLConverters,
-    payload: payload,
-  })
 
   return (
     <div className="blog-single-wrap">
@@ -67,8 +62,9 @@ const ProductPage = async (props: Props) => {
               <div
                 className="sidebar-widget first-widget"
                 style={{ borderTop: '1px solid #e5e5e5', paddingTop: '48px' }}
-                dangerouslySetInnerHTML={{ __html: description }}
-              ></div>
+              >
+                <RichText data={product.description} />
+              </div>
             </div>
           </div>
         </div>

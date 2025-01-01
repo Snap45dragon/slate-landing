@@ -1,12 +1,11 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
-import { Company, ContactUs } from '@/payload-types'
 import Form from './form'
 
 const ContactUsPage = async () => {
   const payload = await getPayload({ config })
-  const contactUs: ContactUs = await payload.findGlobal({ slug: 'contact-us', depth: 1 })
-  const company: Company = await payload.findGlobal({ slug: 'company', depth: 1 })
+  const contactUs = await payload.findGlobal({ slug: 'contact-us', depth: 1 })
+  const company = await payload.findGlobal({ slug: 'company', depth: 1 })
 
   return (
     <div>

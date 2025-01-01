@@ -6415,3 +6415,7 @@ blockquote {
   border-bottom: 1px solid #e5e5e5;
   z-index: 999;
 }
+
+.payload-richtext {
+  white-space: break-spaces;
+}

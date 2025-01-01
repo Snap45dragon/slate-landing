@@ -2,6 +2,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import { convertLexicalToHTML, defaultHTMLConverters } from '@payloadcms/richtext-lexical'
 import { AboutUs } from '@/payload-types'
+import { RichText } from '@payloadcms/richtext-lexical/react'
 
 const AboutPage = async () => {
   const payload = await getPayload({ config })
@@ -17,9 +18,9 @@ const AboutPage = async () => {
       <section className="about-blockquote-section">
         <div className="container w-container">
           <div className="intro-blockquote-wrap">
-            <blockquote
-              dangerouslySetInnerHTML={{ __html: await convertToHTML(aboutUs.quote) }}
-            ></blockquote>
+            <blockquote>
+              <RichText data={aboutUs.quote} />
+            </blockquote>
           </div>
         </div>
       </section>
@@ -43,10 +44,9 @@ const AboutPage = async () => {
                 <h2 className="about-heading">
                   <strong>{section.title}</strong>
                 </h2>
-                <p
-                  className="about-content"
-                  dangerouslySetInnerHTML={{ __html: await convertToHTML(section.description) }}
-                ></p>
+                <p className="about-content">
+                  <RichText data={section.description} />
+                </p>
               </div>
               <img
                 src={section.image.url}
@@ -62,10 +62,9 @@ const AboutPage = async () => {
         <div className="container w-container">
           <div className="section-title-wrap">
             <h2 className="section-title center-small-space">{aboutUs.closing.title}</h2>
-            <p
-              className="section-title-content"
-              dangerouslySetInnerHTML={{ __html: await convertToHTML(aboutUs.closing.description) }}
-            ></p>
+            <p className="section-title-content">
+              <RichText data={aboutUs.closing.description} />
+            </p>
           </div>
         </div>
       </section>
