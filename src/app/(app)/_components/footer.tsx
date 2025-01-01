@@ -77,7 +77,7 @@ const Footer: React.FC<FooterProps> = async ({ company }) => {
             Catalogue
           </a>{' '}
           or write to us for further details. <br />
-          Copyright © Slate | Designed by <a href="#">Sailesh</a>
+          Copyright © Slate | Designed by <a href="https://saileshkumar.dev">Sailesh</a>
         </div>
       </div>
     </div>
