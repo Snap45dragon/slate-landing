@@ -1,10 +1,10 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 import { Company, ContactUs } from '@/payload-types'
 import Form from './form'
 
 const ContactUsPage = async () => {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
   const contactUs: ContactUs = await payload.findGlobal({ slug: 'contact-us', depth: 1 })
   const company: Company = await payload.findGlobal({ slug: 'company', depth: 1 })
 

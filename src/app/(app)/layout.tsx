@@ -1,4 +1,4 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 import Navbar from './_components/navbar'
 import Footer from './_components/footer'
@@ -17,7 +17,7 @@ export const viewport: Viewport = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
   const company: Company = await payload.findGlobal({ slug: 'company', depth: 1 })
   return (
     <html lang="en">

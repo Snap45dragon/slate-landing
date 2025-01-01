@@ -1,5 +1,5 @@
 import { revalidatePath } from 'next/cache'
-import { CollectionConfig } from 'payload/types'
+import { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
   slug: 'media',

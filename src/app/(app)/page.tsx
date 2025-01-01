@@ -1,9 +1,9 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
 
 const HomePage = async () => {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
   const homepage = await payload.findGlobal({ slug: 'homepage', depth: 2 })
   return (
     <div>

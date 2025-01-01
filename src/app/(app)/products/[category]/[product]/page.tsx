@@ -1,17 +1,17 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 import { convertLexicalToHTML, defaultHTMLConverters } from '@payloadcms/richtext-lexical'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 type Props = {
-  params: {
+  params: Promise<{
     product: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
   const products = await payload.find({
     collection: 'products',
     depth: 2,
@@ -23,8 +23,9 @@ export async function generateStaticParams() {
   }))
 }
 
-const ProductPage = async ({ params }: Props) => {
-  const payload = await getPayloadHMR({ config })
+const ProductPage = async (props: Props) => {
+  const params = await props.params
+  const payload = await getPayload({ config })
   const products = await payload.find({
     collection: 'products',
     depth: 2,

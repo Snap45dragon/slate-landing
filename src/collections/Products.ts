@@ -1,5 +1,5 @@
 import { revalidatePath } from 'next/cache'
-import { CollectionConfig, FieldHook } from 'payload/types'
+import { CollectionConfig, FieldHook } from 'payload'
 
 const formatSlug: FieldHook = async ({ value, data }) =>
   data?.name?.replace(/ /g, '-').toLowerCase() ?? value

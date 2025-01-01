@@ -1,4 +1,4 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -8,7 +8,7 @@ type Props = {
 }
 
 const Products = async (params: Props) => {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
   const categories = await payload.find({ collection: 'categories', depth: 1, pagination: false })
   const products = await payload.find({
     collection: 'products',
@@ -16,6 +16,8 @@ const Products = async (params: Props) => {
     pagination: false,
     where: params.category ? { 'category.slug': { equals: params.category } } : {},
   })
+  console.log(params.category)
+  console.log(products)
   if (products.totalDocs === 0) notFound()
 
   return (

@@ -1,9 +1,9 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
 
 const NotFoundPage = async () => {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
   const company = await payload.findGlobal({ slug: 'company', depth: 2 })
   return (
     <div className="utility-page-wrap">

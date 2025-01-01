@@ -1,10 +1,10 @@
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 import { convertLexicalToHTML, defaultHTMLConverters } from '@payloadcms/richtext-lexical'
 import { AboutUs } from '@/payload-types'
 
 const AboutPage = async () => {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
   const aboutUs: AboutUs = await payload.findGlobal({ slug: 'about-us' })
   const convertToHTML = async (data: any) =>
     await convertLexicalToHTML({

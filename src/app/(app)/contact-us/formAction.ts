@@ -1,5 +1,5 @@
 'use server'
-import { getPayloadHMR } from '@payloadcms/next/utilities'
+import { getPayload } from 'payload'
 import config from '@payload-config'
 
 type FormState = {
@@ -11,7 +11,7 @@ type FormState = {
 }
 
 export async function formAction(_: FormState, data: FormData) {
-  const payload = await getPayloadHMR({ config })
+  const payload = await getPayload({ config })
 
   const form = await payload.create({
     collection: 'forms',

@@ -1,7 +1,7 @@
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
-import { buildConfig } from 'payload/config'
+import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import { Users } from './collections/Users'
 import { Categories } from './collections/Categories'
@@ -11,11 +11,8 @@ import Homepage from './globals/Homepage'
 import AboutUs from './globals/AboutUs'
 import ContactUs from './globals/ContactUs'
 import Company from './globals/Company'
-import Logo from './app/(payload)/_compoennts/logo'
-import Icon from './app/(payload)/_compoennts/icon'
 import { Forms } from './collections/Forms'
-import { cloudStorage } from '@payloadcms/plugin-cloud-storage'
-import { s3Adapter } from '@payloadcms/plugin-cloud-storage/s3'
+import { s3Storage } from '@payloadcms/storage-s3'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,10 +20,13 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     user: Users.slug,
+    importMap: {
+      baseDir: path.resolve(dirname, 'src'),
+    },
     components: {
       graphics: {
-        Logo: Logo,
-        Icon: Icon,
+        // Logo: '/app/(payload)/_compoennts/logo#Logo',
+        // Icon: '/app/(payload)/_compoennts/icon#Icon',
       },
     },
   },
@@ -42,23 +42,20 @@ export default buildConfig({
   }),
   email: undefined,
   plugins: [
-    cloudStorage({
+    s3Storage({
       collections: {
-        media: {
-          adapter: s3Adapter({
-            config: {
-              forcePathStyle: true,
-              credentials: {
-                accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
-                secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
-              },
-              region: process.env.S3_REGION,
-              endpoint: process.env.S3_ENDPOINT,
-            },
-            bucket: process.env.S3_BUCKET || '',
-          }),
-        },
+        media: true,
       },
+      config: {
+        forcePathStyle: true,
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
+        },
+        region: process.env.S3_REGION,
+        endpoint: process.env.S3_ENDPOINT,
+      },
+      bucket: process.env.S3_BUCKET || '',
     }),
   ],
 })
