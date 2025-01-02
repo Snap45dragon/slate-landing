@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 interface NavbarProps {
-  company: Company
+  company: AdjustDepth<Company, 1>
 }
 
 const Navbar: React.FC<NavbarProps> = ({ company }) => {

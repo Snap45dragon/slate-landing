@@ -1,7 +1,8 @@
-import { getPayload } from 'payload'
+import { PaginatedDocs, getPayload } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
+import { Product, Category } from '@/payload-types'
 
 type Props = {
   category?: string
@@ -9,13 +10,17 @@ type Props = {
 
 const Products = async (params: Props) => {
   const payload = await getPayload({ config })
-  const categories = await payload.find({ collection: 'categories', depth: 1, pagination: false })
-  const products = await payload.find({
+  const categories = (await payload.find({
+    collection: 'categories',
+    depth: 1,
+    pagination: false,
+  })) as PaginatedDocs<AdjustDepth<Category, 1>>
+  const products = (await payload.find({
     collection: 'products',
     depth: 2,
     pagination: false,
     where: params.category ? { 'category.slug': { equals: params.category } } : {},
-  })
+  })) as PaginatedDocs<AdjustDepth<Product, 2>>
   if (products.totalDocs === 0) redirect('/products')
 
   return (

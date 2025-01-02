@@ -22,5 +22,10 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    {
+      name: 'url',
+      type: 'text',
+      required: true,
+    },
   ],
 }

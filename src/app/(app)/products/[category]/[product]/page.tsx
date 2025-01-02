@@ -1,8 +1,9 @@
-import { getPayload } from 'payload'
+import { PaginatedDocs, getPayload } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { RichText } from '@payloadcms/richtext-lexical/react'
+import { Product } from '@/payload-types'
 
 type Props = {
   params: Promise<{
@@ -26,11 +27,11 @@ export async function generateStaticParams() {
 const ProductPage = async (props: Props) => {
   const params = await props.params
   const payload = await getPayload({ config })
-  const products = await payload.find({
+  const products = (await payload.find({
     collection: 'products',
     depth: 2,
     where: { slug: { equals: params.product } },
-  })
+  })) as PaginatedDocs<AdjustDepth<Product, 2>>
   if (products.totalDocs === 0) notFound()
   const product = products.docs[0]
 

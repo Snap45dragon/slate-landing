@@ -18,7 +18,10 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const payload = await getPayload({ config })
-  const company: Company = await payload.findGlobal({ slug: 'company', depth: 1 })
+  const company = (await payload.findGlobal({ slug: 'company', depth: 1 })) as AdjustDepth<
+    Company,
+    1
+  >
   return (
     <html lang="en">
       <head>

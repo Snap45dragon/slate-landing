@@ -1,18 +1,14 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
-import { convertLexicalToHTML, defaultHTMLConverters } from '@payloadcms/richtext-lexical'
 import { AboutUs } from '@/payload-types'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 
 const AboutPage = async () => {
   const payload = await getPayload({ config })
-  const aboutUs: AboutUs = await payload.findGlobal({ slug: 'about-us' })
-  const convertToHTML = async (data: any) =>
-    await convertLexicalToHTML({
-      data: data,
-      converters: defaultHTMLConverters,
-      payload: payload,
-    })
+  const aboutUs = (await payload.findGlobal({ slug: 'about-us', depth: 1 })) as AdjustDepth<
+    AboutUs,
+    1
+  >
   return (
     <div>
       <section className="about-blockquote-section">

@@ -1,11 +1,15 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import Form from './form'
+import { Company } from '@/payload-types'
 
 const ContactUsPage = async () => {
   const payload = await getPayload({ config })
   const contactUs = await payload.findGlobal({ slug: 'contact-us', depth: 1 })
-  const company = await payload.findGlobal({ slug: 'company', depth: 1 })
+  const company = (await payload.findGlobal({ slug: 'company', depth: 1 })) as AdjustDepth<
+    Company,
+    1
+  >
 
   return (
     <div>

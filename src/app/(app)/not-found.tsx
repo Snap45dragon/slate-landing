@@ -1,10 +1,14 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
+import { Company } from '@/payload-types'
 
 const NotFoundPage = async () => {
   const payload = await getPayload({ config })
-  const company = await payload.findGlobal({ slug: 'company', depth: 2 })
+  const company = (await payload.findGlobal({ slug: 'company', depth: 2 })) as AdjustDepth<
+    Company,
+    2
+  >
   return (
     <div className="utility-page-wrap">
       <div className="utility-page-content w-form">

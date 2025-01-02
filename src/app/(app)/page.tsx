@@ -1,10 +1,14 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
+import { Homepage } from '@/payload-types'
 
 const HomePage = async () => {
   const payload = await getPayload({ config })
-  const homepage = await payload.findGlobal({ slug: 'homepage', depth: 2 })
+  const homepage = (await payload.findGlobal({
+    slug: 'homepage',
+    depth: 2,
+  })) as AdjustDepth<Homepage, 2>
   return (
     <div>
       <section

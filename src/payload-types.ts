@@ -99,7 +99,7 @@ export interface Media {
   alt: string;
   updatedAt: string;
   createdAt: string;
-  url?: string | null;
+  url: string;
   thumbnailURL?: string | null;
   filename?: string | null;
   mimeType?: string | null;

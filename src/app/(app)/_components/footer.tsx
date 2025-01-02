@@ -3,7 +3,7 @@ import { Company } from '@/payload-types'
 import React from 'react'
 
 interface FooterProps {
-  company: Company
+  company: AdjustDepth<Company, 1>
 }
 
 const Footer: React.FC<FooterProps> = async ({ company }) => {
