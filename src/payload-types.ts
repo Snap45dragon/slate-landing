@@ -144,7 +144,7 @@ export interface Product {
     };
     [k: string]: unknown;
   };
-  image: string | Media;
+  images: (string | Media)[];
   category: string | Category;
   related_products?: (string | Product)[] | null;
   slug?: string | null;
@@ -286,7 +286,7 @@ export interface CategoriesSelect<T extends boolean = true> {
 export interface ProductsSelect<T extends boolean = true> {
   name?: T;
   description?: T;
-  image?: T;
+  images?: T;
   category?: T;
   related_products?: T;
   slug?: T;

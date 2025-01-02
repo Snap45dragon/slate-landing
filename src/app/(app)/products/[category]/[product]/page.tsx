@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import { Product } from '@/payload-types'
+import Carousel from '@/app/(app)/_components/carousel/carousel'
 
 type Props = {
   params: Promise<{
@@ -41,13 +42,7 @@ const ProductPage = async (props: Props) => {
         <div className="single-content-wrap">
           <div className="w-layout-grid blog-single-grid wf-grid">
             <div className="blog-single-content-wrap">
-              <img
-                loading="lazy"
-                width={915}
-                src={product.image.url}
-                alt={product.image.alt}
-                className="blog-single-image"
-              />
+              <Carousel slides={product.images} />
             </div>
             <div className="blog-single-sidebar">
               <div className="breadcrumb-wrap" style={{ fontSize: '18px' }}>

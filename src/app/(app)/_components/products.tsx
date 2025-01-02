@@ -89,8 +89,8 @@ const Products = async (params: Props) => {
                           <div className="blog-listing-image-container">
                             <img
                               loading="lazy"
-                              src={product.image.url}
-                              alt={product.image.alt}
+                              src={product.images[0]?.url}
+                              alt={product.images[0]?.alt}
                               className="blog-listing-image"
                             />
                           </div>

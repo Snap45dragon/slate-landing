@@ -2,7 +2,7 @@ import { revalidatePath } from 'next/cache'
 import { CollectionConfig, FieldHook } from 'payload'
 
 const formatSlug: FieldHook = async ({ value, data }) =>
-  data?.name?.replace(/ /g, '-').toLowerCase() ?? value
+  data?.name?.replace(/ /g, '-').toLowerCase().trim() ?? value
 
 export const Products: CollectionConfig = {
   slug: 'products',
@@ -24,10 +24,11 @@ export const Products: CollectionConfig = {
       required: true,
     },
     {
-      name: 'image',
+      name: 'images',
       type: 'upload',
       relationTo: 'media',
       required: true,
+      hasMany: true,
     },
     {
       name: 'category',
