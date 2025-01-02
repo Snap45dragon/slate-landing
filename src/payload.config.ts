@@ -26,6 +26,17 @@ export default buildConfig({
         Icon: '/src/app/(payload)/_compoennts/icon#Icon',
       },
     },
+    meta: {
+      title: 'Slate Hardwares | CMS',
+      description: 'Admin panel for Slate Hardwares',
+      icons: [
+        {
+          rel: 'icon',
+          type: 'image/png',
+          url: '/favicon-32x32.png',
+        },
+      ],
+    },
   },
   collections: [Users, Media, Categories, Products, Forms],
   globals: [Company, Homepage, AboutUs, ContactUs],
