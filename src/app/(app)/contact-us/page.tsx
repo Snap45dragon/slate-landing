@@ -62,7 +62,7 @@ const ContactUsPage = async () => {
                   className="contact-social-link w-inline-block"
                   target="_blank"
                 >
-                  <img src={social.icon.url} alt={social.icon.alt} />
+                  <img src={`/api/media/file/${social.icon.filename}`} alt={social.icon.alt} />
                 </a>
               ))}
             </div>

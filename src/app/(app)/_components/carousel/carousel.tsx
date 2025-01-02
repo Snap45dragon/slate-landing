@@ -30,7 +30,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
               <img
                 loading="lazy"
                 width={915}
-                src={slide.url}
+                src={`/api/media/file/${slide.filename}`}
                 alt={slide.alt}
                 className="blog-single-image"
               />

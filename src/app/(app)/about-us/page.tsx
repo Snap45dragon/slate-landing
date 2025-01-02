@@ -45,7 +45,7 @@ const AboutPage = async () => {
                 </p>
               </div>
               <img
-                src={section.image.url}
+                src={`/api/media/file/${section.image.filename}`}
                 loading="lazy"
                 alt={section.image.alt}
                 className="about-image"

@@ -34,7 +34,11 @@ const Navbar: React.FC<NavbarProps> = ({ company }) => {
               <Link href="/products" className={navClass('/products')}>
                 Products
               </Link>
-              <a href={company.catalogue.url} className="nav-link w-nav-link" target="_blank">
+              <a
+                href={`/api/media/file/${company.catalogue.filename}`}
+                className="nav-link w-nav-link"
+                target="_blank"
+              >
                 Catalog
               </a>
               <Link href="/contact-us" className={navClass('/contact-us')}>

@@ -23,7 +23,7 @@ export const Media: CollectionConfig = {
       required: true,
     },
     {
-      name: 'url',
+      name: 'filename',
       type: 'text',
       required: true,
     },

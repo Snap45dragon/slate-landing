@@ -29,7 +29,10 @@ const Footer: React.FC<FooterProps> = async ({ company }) => {
                   key={index}
                   className="footer-social-link w-inline-block"
                 >
-                  <img src={social_link.icon.url} alt={social_link.icon.alt} />
+                  <img
+                    src={`/api/media/file/${social_link.icon.filename}`}
+                    alt={social_link.icon.alt}
+                  />
                 </a>
               ))}
             </div>
@@ -70,7 +73,7 @@ const Footer: React.FC<FooterProps> = async ({ company }) => {
           {' '}
           Actual products may differ from the given images. The product details given here may be
           incomplete. Please download our{' '}
-          <a href={company.catalogue.url} target="_blank">
+          <a href={`/api/media/file/${company.catalogue.filename}`} target="_blank">
             Catalogue
           </a>{' '}
           or write to us for further details. <br />

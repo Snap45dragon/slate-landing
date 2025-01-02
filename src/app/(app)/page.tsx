@@ -13,7 +13,7 @@ const HomePage = async () => {
     <div>
       <section
         className="hero-section"
-        style={{ backgroundImage: `url(${homepage.hero.image.url})` }}
+        style={{ backgroundImage: `url(/api/media/file/${homepage.hero.image.filename})` }}
       >
         <div className="hero-content-wrap">
           <div className="container w-container">
@@ -57,7 +57,7 @@ const HomePage = async () => {
               </Link>
             </div>
             <img
-              src={homepage.introduction.image.url}
+              src={`/api/media/file/${homepage.introduction.image.filename}`}
               loading="lazy"
               alt={homepage.introduction.image.alt}
               className="right-radius-image"
@@ -95,7 +95,7 @@ const HomePage = async () => {
                       >
                         <img
                           loading="lazy"
-                          src={category.image.url}
+                          src={`/api/media/file/${category.image.filename}`}
                           alt={category.image.alt}
                           className="project-listing-image"
                         />
@@ -155,7 +155,7 @@ const HomePage = async () => {
                   <div className="testimonial-detail">
                     <div className="testimonial-image-wrap">
                       <img
-                        src={testimonial.image.url}
+                        src={`/api/media/file/${testimonial.image.filename}`}
                         loading="lazy"
                         alt={testimonial.image.alt}
                         className="testimonial-client"
@@ -182,7 +182,11 @@ const HomePage = async () => {
                 id="w-node-cc80d0cd-42e4-2620-442a-514667d49987-b3106505"
                 className="client-image-wrap"
               >
-                <img src={brand.image.url} loading="lazy" alt={brand.image.alt} />
+                <img
+                  src={`/api/media/file/${brand.image.filename}`}
+                  loading="lazy"
+                  alt={brand.image.alt}
+                />
               </div>
             ))}
           </div>
@@ -211,7 +215,7 @@ const HomePage = async () => {
                         <div className="blog-listing-image-container">
                           <img
                             loading="lazy"
-                            src={product.images[0]?.url}
+                            src={`/api/media/file/${product.images[0]?.filename}`}
                             alt={product.images[0]?.alt}
                             className="blog-listing-image"
                           />

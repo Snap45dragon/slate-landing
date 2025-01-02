@@ -89,7 +89,7 @@ const Products = async (params: Props) => {
                           <div className="blog-listing-image-container">
                             <img
                               loading="lazy"
-                              src={product.images[0]?.url}
+                              src={`/api/media/file/${product.images[0]?.filename}`}
                               alt={product.images[0]?.alt}
                               className="blog-listing-image"
                             />

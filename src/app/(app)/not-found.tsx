@@ -24,7 +24,7 @@ const NotFoundPage = async () => {
           </div>
           <div className="error-page-image">
             <img
-              src={company.not_found_image.url}
+              src={`/api/media/file/${company.not_found_image.filename}`}
               loading="lazy"
               sizes="100vw"
               alt={company.not_found_image.alt}
