@@ -1,7 +1,7 @@
 {
   "crons": [
     {
-      "path": "https://kbsinvgeuhydybquwowq.supabase.co/storage/v1/object/sign/slate/404-5.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJzbGF0ZS80MDQtNS5qcGciLCJpYXQiOjE3NDMxNDUwMTksImV4cCI6NDg5Njc0NTAxOX0.Ob8rsa-PMbkOEL42y18Vld_0ClaO0n78mFPJQ9wWNMs",
+      "path": "/api/media/file/404-5.jpg",
       "schedule": "0 0 * * *"
     }
   ]
