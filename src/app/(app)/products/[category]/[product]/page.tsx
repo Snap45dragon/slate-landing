@@ -31,7 +31,7 @@ const ProductPage = async (props: Props) => {
   const products = (await payload.find({
     collection: 'products',
     depth: 2,
-    where: { slug: { equals: params.product } },
+    where: { slug: { equals: decodeURIComponent(params.product) } },
   })) as PaginatedDocs<AdjustDepth<Product, 2>>
   if (products.totalDocs === 0) notFound()
   const product = products.docs[0]
