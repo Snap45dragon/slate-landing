@@ -159,6 +159,7 @@ const HomePage = async () => {
                         loading="lazy"
                         alt={testimonial.image.alt}
                         className="testimonial-client"
+                        width={77}
                       />
                       <div className="client-detail">
                         <h3 className="client-name">{testimonial.name}</h3>
