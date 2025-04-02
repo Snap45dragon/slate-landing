@@ -102,7 +102,7 @@ const Navbar: React.FC<NavbarProps> = ({ company }) => {
                 Products
               </Link>
               <a
-                href="/SC2023.pdf"
+                href="/slate_catalogue.pdf"
                 target="_blank"
                 onClick={() => setMobileNavOpen(false)}
                 className="nav-link w-nav-link w--nav-link-open"
